@@ -1,0 +1,21 @@
+<h1>Enter an Album!</h1>
+
+<form action="<%= albums_url %>" method="post">
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+
+  <label>Album Name
+    <input type="text" name="album[name]">
+  </label>
+
+  <label for="album_band_id">Select the Band</label>
+  <select name="album[band_id]" id="album_band_id">
+    <% @bands.each do |band| %>
+      <option value="<%= band.id %>"><%= band.name %></option>
+    <% end %>
+  </select>
+
+
+</form>
